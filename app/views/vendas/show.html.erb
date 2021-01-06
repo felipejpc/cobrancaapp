@@ -56,4 +56,5 @@
 </table>
 
 <%= link_to 'Editar', edit_cliente_venda_path(@cliente) %> |
-<%= link_to 'Voltar', cliente_vendas_path(@cliente) %>
+<%= link_to 'Voltar', cliente_vendas_path(@cliente) %>|
+<%= link_to 'Registrar Pagamento', new_cliente_venda_pagamento_path(@cliente, @venda, @pagamento) %>

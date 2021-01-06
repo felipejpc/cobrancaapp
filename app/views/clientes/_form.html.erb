@@ -17,7 +17,7 @@
 
   <div class="field">
     <%= form.label :cidade_id %>
-    <%= select("cliente", "cidade_id", Cidade.all.collect {|c| [ c.nome, c.id ] }, {include_blank: 'Escolha uma Cidade'}) %>
+    <%= select("cliente", "cidade_id", Cidade.all.collect {|c| [ c.nome, c.id ] }) %>
   </div>
 
   <div class="field">

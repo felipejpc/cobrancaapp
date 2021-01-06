@@ -1,0 +1,36 @@
+<%= form_with(model: @pagamento, url: [@cliente, @venda, @pagamento]) do |form| %>
+  <% if cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2>Corrija os seguintes erros salvar um pagamento:</h2>
+      <ul>
+        <% cliente.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :parcela %>
+    <%= form.number_field :parcela, step: 1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dt_venc %>
+    <%= form.date_select :dt_venc %>
+  </div>
+
+    <div class="field">
+    <%= form.label :valor %>
+    <%= form.number_field :valor, step: 0.01 %>
+  </div>
+
+    <div class="field">
+    <%= form.label :dt_pgto %>
+    <%= form.date_select :dt_pgto, include_blank: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

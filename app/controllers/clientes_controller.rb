@@ -24,10 +24,10 @@ class ClientesController < ApplicationController
   # POST /clientes
   # POST /clientes.json
   def create
-    @cliente = Cliente.new(cliente_params)
-    @cliente.cria_cliente_index
+    @cliente = Cliente.new(cliente_params)    
     respond_to do |format|
-      if @cliente.save
+      @cliente.cria_cliente_index
+      if @cliente.save        
         format.html { redirect_to @cliente, notice: 'O novo Cliente foi criado!' }
         format.json { render :show, status: :created, location: @cliente }
       else
@@ -41,8 +41,9 @@ class ClientesController < ApplicationController
   # PATCH/PUT /clientes/1.json
   def update    
     respond_to do |format|
-      @cliente.cria_cliente_index
       if @cliente.update(cliente_params)
+        @cliente.cria_cliente_index
+        @cliente.save
         format.html { redirect_to @cliente, notice: 'Os dados do Cliente foram atualizados!' }
         format.json { render :show, status: :ok, location: @cliente }
       else
