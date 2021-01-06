@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "clientes#index" 
+  get '/relatorios', to: 'relatorios#index'
+  root to: 'clientes#index'
 
 end
