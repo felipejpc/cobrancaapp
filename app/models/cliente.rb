@@ -5,6 +5,6 @@ class Cliente < ApplicationRecord
   validates :cliente_index, uniqueness: true
 
   def cria_cliente_index
-    self.cliente_index = "#{nome} (#{Cidade.find_by(id: cidade_id).cidade})"
+    self.cliente_index = "#{nome} (#{Cidade.find_by(id: cidade_id).nome})"
   end
 end
