@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Histórico de Vendas</h1>
+<h2>Cliente <%= @cliente.cliente_index %></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Data Venda</th>
+      <th>Mercadoria</th>
+      <th>Valor</th>
+      <th>Observações</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vendas.each do |venda| %>
+      <tr>
+        <td><%= venda.data%></td>
+        <td><%= venda.mercadorias %></td>
+        <td><%= venda.valor %></td>
+        <td><%= venda.obs %></td>
+        <td><%= link_to 'Detalhes', cliente_venda_path(venda.cliente_id, venda) %></td>
+        <td><%= link_to 'Editar', edit_cliente_venda_path(venda.cliente_id, venda) %></td>
+        <td><%= link_to 'Apagar', cliente_venda_path(venda.cliente_id, venda), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Registrar Venda', new_cliente_venda_path %> |
+<%= link_to 'Voltar', cliente_path(@cliente) %>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cliente: one
+  mercadoria: MyText
+  dt_venda: 2021-01-05
+  obs: MyString
+
+two:
+  cliente: two
+  mercadoria: MyText
+  dt_venda: 2021-01-05
+  obs: MyString

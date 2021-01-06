@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parcela: 1
+  dt_venc_parc: 2021-01-05
+  valor: 9.99
+  dt_pgto: 2021-01-05
+
+two:
+  parcela: 1
+  dt_venc_parc: 2021-01-05
+  valor: 9.99
+  dt_pgto: 2021-01-05

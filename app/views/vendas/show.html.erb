@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Detalhes da Venda</h2>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @cliente.cliente_index %>
+</p>
+
+<p>
+  <strong>Dt venda:</strong>
+  <%= @venda.data %>
+</p>
+
+<p>
+  <strong>Mercadorias:</strong>
+  <%= @venda.mercadorias %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @venda.valor %>
+</p>
+
+<p>
+  <strong>Obs:</strong>
+  <%= @venda.obs %>
+</p>
+
+<p>
+  <strong>Pagamentos</strong>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parc</th>
+      <th>Venc</th>
+      <th>Valor</th>
+      <th>Dt_Pgto</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pagamentos.each do |pgto| %>
+      <tr>
+        <td><%= pgto.parcela%></td>
+        <td><%= pgto.dt_venc %></td>
+        <td><%= pgto.valor %></td>
+        <td><%= pgto.dt_pgto %></td>
+        <td><%= link_to 'Editar', edit_cliente_venda_pagamento_path(@venda.cliente_id, @venda, pgto) %></td>
+        <td><%= link_to 'Apagar', cliente_venda_pagamento_path(@venda.cliente_id, @venda, pgto), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Editar', edit_cliente_venda_path(@cliente) %> |
+<%= link_to 'Voltar', cliente_vendas_path(@cliente) %>

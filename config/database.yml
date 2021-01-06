@@ -1,0 +1,40 @@
+default: &default
+  adapter: postgresql
+  encoding: UTF8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: cobrancaapp_dev
+  username: cobrancaapp
+  password: fe375500
+test:
+  <<: *default
+  database: cobrancaapp_test
+  username: cobrancaapp
+  password: fe375500
+
+# As with config/credentials.yml, you never want to store sensitive information,
+# like your database password, in your source code. If your source code is
+# ever seen by anyone, they now have access to your database.
+#
+# Instead, provide the password as a unix environment variable when you boot
+# the app. Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
+# for a full rundown on how to provide these environment variables in a
+# production deployment.
+#
+# On Heroku and other platform providers, you may have a full connection URL
+# available as an environment variable. For example:
+#
+#   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+#
+# You can use this database configuration with:
+#
+#   production:
+#     url: <%= ENV['DATABASE_URL'] %>
+#
+production:
+  <<: *default
+  database: cobrancaapp_prod
+  username: cobrancaapp
+  password: <%= ENV['COBRANCAAPP_PROD_DATABASE_PASSWORD'] %>

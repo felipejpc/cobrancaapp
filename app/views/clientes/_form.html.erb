@@ -1,0 +1,41 @@
+<%= form_with(model: cliente) do |form| %>
+  <% if cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2>Corrija os seguintes erros para criar um novo cliente:</h2>
+      <ul>
+        <% cliente.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cidade_id %>
+    <%= select("cliente", "cidade_id", Cidade.all.collect {|c| [ c.nome, c.id ] }, {include_blank: 'Escolha uma Cidade'}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :endereco %>
+    <%= form.text_field :endereco %>
+  </div>
+
+    <div class="field">
+    <%= form.label :fone_celular %>
+    <%= form.text_field :fone_celular %>
+  </div>
+
+    <div class="field">
+    <%= form.label :fone_fixo %>
+    <%= form.text_field :fone_fixo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,45 @@
+<h1>Nova Venda</h1>
+
+<%= form_with(model: @venda, url: [@cliente, @venda]) do |form| %>
+  <% if @venda.errors.any? %>
+    <div id="error_explanation">
+      <h2>Corrija os seguintes erros para registrar a venda:</h2>
+      <ul>
+        <% @venda.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :mercadorias %>
+    <%= form.text_area :mercadorias %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data %>
+    <%= form.date_select :data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :valor %>
+    <%= form.number_field :valor, step: 0.01 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :obs %>
+    <%= form.text_field :obs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :forma_pgto %>
+    <%= form.select :forma_pgto, [['À Vista', 1], ['Parcelado 1x', 2], ['Parcelado 2x', 3], ['Parcelado 3x', 4], ['Parcelado 4x', 5]]%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Voltar', cliente_vendas_path %>
